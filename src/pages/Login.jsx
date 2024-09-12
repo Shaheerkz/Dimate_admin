@@ -7,6 +7,7 @@ import { useContext } from "react";
 import { LoginContext } from "../context/Admin";
 import { useNavigate } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import LogoMain from '../images/logo.jpeg'
 import Cookies from 'js-cookie'
 
 function Login() {
@@ -55,6 +56,9 @@ function Login() {
     <div className="h-[100vh] w-full flex justify-center items-center">
       <div className="container">
         <div className="row justify-center">
+          <div className="col-12">
+          <img src={LogoMain} alt="" className="main_logo" />
+          </div>
           <div className="col-lg-5 col-sm-12">
             <div className={`h-200px ${error ? 'block' : 'hidden'}`}>
               <Alert variant="danger">

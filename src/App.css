@@ -131,10 +131,15 @@ aside{
 aside .top{
     margin-top: 1.4rem;
     display: flex;
-    background:var(--color-white);
+    /* background:var(--color-white); */
     justify-content: space-between;
     align-items: center;
     position: fixed;
+}
+.main_logo{
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
 }
 aside .logo{
     display: flex;
@@ -142,8 +147,8 @@ aside .logo{
     align-items: center;
 }
 aside .logo img{
-    width: 3rem;
-    height: 3rem;
+    width: 6rem;
+    height: 4rem;
 }
 aside .close{
     display: none;

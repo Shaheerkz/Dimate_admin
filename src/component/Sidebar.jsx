@@ -49,7 +49,7 @@ function Sidebar(){
                 <h3>Payment Managment</h3>
                 </NavLink>
                 <NavLink className={({isActive})=>`${isActive ? "active" : ""}`}  to="/resturent-managment">
-                <FontAwesomeIcon icon={faBowlFood} />
+                <FontAwesomeIcon icon={faBowlFood} className='text-[20px]' />
                 <h3>Resturent Managment</h3>
                 </NavLink>
                <button onClick={handleLogout}>

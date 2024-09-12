@@ -81,17 +81,21 @@ function ResturentManagment() {
         "https://backend.mydinemate.com/api/admin/signupRestaurant", data ,
         {
           headers: {
-            Accept: '*/*',
+            Accept: '/',
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${adminData.token}` 
-
+            'Authorization': `Bearer ${token}`
           },
+          
         }
       );
+
+      console.log(result.data);
+      handleClose()
+      
     } catch (err) {
       console.log(err.message);
-    }
-  };
+    }
+  };
 
   const openFilter = () => {
     setisFilter(!isFilter);
