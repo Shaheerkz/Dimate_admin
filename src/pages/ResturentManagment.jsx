@@ -307,7 +307,7 @@ function ResturentManagment() {
         </Modal.Header>
         <Modal.Body>
           <div className="">
-            <form className="flex flex-col gap-2">
+            <form className="flex flex-col gap-2" onSubmit={handleAdd}>
               <div>
               <div className="col-md-8 col-lg-9">
             <img src={file} className='h-[100px] w-[90px]' alt="Profile" />
@@ -318,7 +318,7 @@ function ResturentManagment() {
               >
                 <FontAwesomeIcon icon={faUpload} />
               </label>
-              <input type='file' id='upload' name='upload' className='hidden' onChange={handleUpload}/>
+              <input type='file' required id='upload' name='upload' className='hidden' onChange={handleUpload}/>
               <button
                 onClick={(e)=>{
                   e.preventDefault();
@@ -339,6 +339,7 @@ function ResturentManagment() {
                   id="inputPassword5"
                   aria-describedby="passwordHelpBlock"
                   value={resturentName}
+                  required
                   onChange={(e)=>setresturentName(e.target.value)}
                 />
               </div>
@@ -349,6 +350,7 @@ function ResturentManagment() {
                   id="inputPassword3"
                   aria-describedby="passwordHelpBlock"
                   value={resturentNumb}
+                  required
                   onChange={(e)=>setresturentNumb(e.target.value)}
                 />
               </div>
@@ -360,6 +362,7 @@ function ResturentManagment() {
                   aria-describedby="passwordHelpBlock"
                   value={resturentEmail}
                   onChange={(e)=>setresturentEmail(e.target.value)}
+                  required
                 />
               </div>
               <div>
@@ -370,11 +373,12 @@ function ResturentManagment() {
                   aria-describedby="passwordHelpBlock"
                   value={resturentpass}
                   onChange={(e)=>setresturentpass(e.target.value)}
+                  required
                 />
               </div>
                <div>
                <button
-              onClick={handleAdd}
+               type="submit"
               className="bg-[#2f007e] rounded-lg py-3 px-6 text-white"
             >
               Add Resturent

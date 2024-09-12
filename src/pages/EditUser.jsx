@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState  , useLayoutEffect} from "react";
 import profile from ".././images/user.png";
 import { Form } from "react-bootstrap";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { useContext } from "react";
 import { LoginContext } from "../context/Admin";
@@ -60,6 +60,7 @@ function EditUser() {
 
   return (
     <main>
+      <Link className="bg-[#2f007e] text-white rounded-md shadow-lg px-5 py-3 my-3 block w-fit" to={'/user'}>back</Link>
       <h1>Edit User</h1>
       <div className="bg-white shadow-lg rounded-lg p-4 my-3">
         <div className="row items-center">
