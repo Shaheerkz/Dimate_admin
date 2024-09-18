@@ -191,7 +191,7 @@ function UserTable() {
       </div>
       <div className="date flex gap-2">
         <input
-          type="input"
+          type="email"
           name=""
           id=""
           className="py-3 w-[300px] px-10 rounded-md mr-2"

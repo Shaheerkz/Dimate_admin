@@ -36,6 +36,7 @@ function EditUser() {
       const res = await data.find((user)=>user._id === userId)
       console.log(res);
       setData(res)
+      setimg(res.userImageUrl)
       setname(res.name)
       setemail(res.email)
       setnumb(res.number)
@@ -67,6 +68,7 @@ function EditUser() {
           <div className="col-lg-4 col-sm-12">
             <img
               src={img}
+              onChange={(e) => setimg(e.target.value)}
               width={100}
               height={130}
               alt="+"

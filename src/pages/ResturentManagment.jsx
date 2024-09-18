@@ -12,6 +12,7 @@ import { Modal} from "react-bootstrap";
 import Profile from '../images/resturent-img.png'
 import User from '../images/user.png'
 import Cookies from 'js-cookie'
+import Insights from '../component/dashboard/Insights'
 import { useNavigate } from "react-router-dom";
 
 
@@ -81,21 +82,17 @@ function ResturentManagment() {
         "https://backend.mydinemate.com/api/admin/signupRestaurant", data ,
         {
           headers: {
-            Accept: '/',
+            Accept: '*/*',
             "Content-Type": "application/json",
-            'Authorization': `Bearer ${token}`
+            'Authorization': `Bearer ${token}` 
+
           },
-          
         }
       );
-
-      console.log(result.data);
-      handleClose()
-      
     } catch (err) {
       console.log(err.message);
-    }
-  };
+    }
+  };
 
   const openFilter = () => {
     setisFilter(!isFilter);
@@ -133,74 +130,25 @@ function ResturentManagment() {
   return (
     <main>
       <h1>Resturent Managment</h1>
-      <div className="date flex gap-2">
+      
+      <Insights />
+      <div className="row justify-between my-5">
+        <div className="col-lg-6 col-md-8 col-sm-6">
+          <h3 className="text-4xl text-[#2f007e]">Resturent List</h3>
+
+          <div className="date flex gap-2">
         <input
-          type="input"
+          type="email"
           name=""
           id=""
           className="py-3 w-[300px] px-10 rounded-md mr-2"
-          placeholder="search..."
+          placeholder="search  by email"
         />
         <button className="bg-[#2f007e] px-5 py-3 rounded-md text-white">
           Search
         </button>
       </div>
-      <div className="insights">
-        <div className="sales">
-          <div className="middle">
-            <div className="left">
-              <h3>Total sales</h3>
-              <h1>250</h1>
-            </div>
-            <div className="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div className="number">
-                <p>82%</p>
-              </div>
-            </div>
-          </div>
-          <small className="text-muted">last 24 hours</small>
-        </div>
-        <div className="expenses">
-          <div className="middle">
-            <div className="left">
-              <h3>Deliverd</h3>
-              <h1>144</h1>
-            </div>
-            <div className="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div className="number">
-                <p>61%</p>
-              </div>
-            </div>
-          </div>
-          <small className="text-muted">last 24 hours</small>
-        </div>
-        <div className="income">
-          <div className="middle">
-            <div className="left">
-              <h3>Pending</h3>
-              <h1>27</h1>
-            </div>
-            <div className="progress">
-              <svg>
-                <circle cx="38" cy="38" r="36"></circle>
-              </svg>
-              <div className="number">
-                <p>47%</p>
-              </div>
-            </div>
-          </div>
-          <small className="text-muted">last 24 hours</small>
-        </div>
-      </div>
-      <div className="row justify-between my-5">
-        <div className="col-lg-4 col-md-6 col-sm-6">
-          <h3 className="text-4xl text-[#2f007e]">Resturent List</h3>
+
         </div>
         <div className="col-lg-4 col-md-6 col-sm-6 relative">
           <div
@@ -287,11 +235,12 @@ function ResturentManagment() {
         {data.length ? (
           data.map((res) => (
             <tbody>
-              <ResturentTable
+              <ResturentTable 
                 td1={res.restaurantName}
                 td2={res.createdAt}
                 td3={res.restaurantEmail}
                 td4={res.restaurantStatus}
+                id={res._id}
               />
             </tbody>
           ))
@@ -315,7 +264,7 @@ function ResturentManagment() {
               <div>
               <div className="col-md-8 col-lg-9">
             <img src={file} className='h-[100px] w-[90px]' alt="Profile" />
-            <div className="pt-2">
+            <div className="pt-2 upload-btns">
               <label
                 className="btn btn-primary btn-sm"
                 htmlFor="upload"
@@ -350,7 +299,7 @@ function ResturentManagment() {
               <div>
                 <Form.Label htmlFor="inputPassword3">Resturent Number</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="number"
                   id="inputPassword3"
                   aria-describedby="passwordHelpBlock"
                   value={resturentNumb}
@@ -361,10 +310,10 @@ function ResturentManagment() {
               <div>
                 <Form.Label htmlFor="inputPassword4">Resturent Email</Form.Label>
                 <Form.Control
-                  type="text"
+                  type="email"
                   id="inputPassword4"
                   aria-describedby="passwordHelpBlock"
-                  value={resturentEmail}
+                  
                   onChange={(e)=>setresturentEmail(e.target.value)}
                   required
                 />

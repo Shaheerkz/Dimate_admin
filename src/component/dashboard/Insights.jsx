@@ -22,7 +22,7 @@ function Insights() {
         })
 
        await setdata(response.data)
-        console.log('insight Data' ,  data);
+       
         
     }
 
@@ -62,7 +62,7 @@ function Insights() {
         </div>
         <div className="progress">
           <svg>
-          <circle cx="34" cy="41" r="32"></circle>          </svg>
+          <circle cx="34" cy="41" r="32"></circle></svg>
           <div className="number">
             <p>99%</p>
           </div>
